@@ -82,9 +82,15 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         // Setup dessertTimer, passing in the lifecycle
         dessertTimer = DessertTimer(this.lifecycle)
 
-        // TODO (03) Check here if the Bundle savedInstanceState is null. If it isn't, get the
+        // COMPLETED (03) Check here if the Bundle savedInstanceState is null. If it isn't, get the
         // three values you saved and restore them: revenue, desserts sold and the timer's
         // seconds count. Also make sure to show the correct image resource.
+        savedInstanceState?.let {
+            dessertsSold = it.getInt(KEY_DESSERTS_SOLD, 0)
+            revenue = it.getInt(KEY_REVENUE, 0)
+            dessertTimer.secondsCount = it.getInt(KEY_SECONDS_COUNT, 0)
+            showCurrentDessert()
+        }
 
         // Set the TextViews to the right values
         binding.revenue = revenue
