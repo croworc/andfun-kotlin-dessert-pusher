@@ -28,6 +28,10 @@ import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
 import timber.log.Timber
 
+const val KEY_REVENUE = "key_revenue"
+const val KEY_DESSERTS_SOLD = "key_desserts_sold"
+const val KEY_SECONDS_COUNT = "key_seconds_count"
+
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private var revenue = 0
@@ -157,9 +161,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         return super.onOptionsItemSelected(item)
     }
 
-    // TODO (01) Add lifecycle callback methods for onSaveInstanceState and onRestoreInstanceState
-    // TODO (02) In onSaveInstanceState, put the revenue, dessertsSold and
-    // dessertTimer.secondsCount in the state Bundle
 
     /** Lifecycle Methods **/
     override fun onStart() {
@@ -180,6 +181,17 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     override fun onStop() {
         super.onStop()
         Timber.i("onStop Called")
+    }
+
+    // COMPLETED (01) Add lifecycle callback methods for onSaveInstanceState and onRestoreInstanceState
+    // COMPLETED (02) In onSaveInstanceState, put the revenue, dessertsSold and
+    // dessertTimer.secondsCount in the state Bundle
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Timber.i("onSaveInstanceState Called")
+        outState.putInt(KEY_DESSERTS_SOLD, dessertsSold)
+        outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_SECONDS_COUNT, dessertTimer.secondsCount)
     }
 
     override fun onDestroy() {
