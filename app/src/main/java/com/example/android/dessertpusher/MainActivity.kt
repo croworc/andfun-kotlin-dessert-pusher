@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
-        // TODO (04) Pass in 'this' MainActivity's lifecycle so that it is observed
+        // COMPLETED (04) Pass in 'this' MainActivity's lifecycle so that it is observed
         // Setup dessertTimer
-        dessertTimer = DessertTimer()
+        dessertTimer = DessertTimer(this.lifecycle)
 
         // Set the TextViews to the right values
         binding.revenue = revenue
