@@ -1,3 +1,14 @@
+```
+This is a companion app for the below mentioned free Udacity course
+
+I've implemented the lessons in the respective exercise branches. The solution branches are unchanged.
+You might want to clone/fork Udacity's repo and complete the exercises yourself. If you're curious 
+about my take on these steps however, feel free to have a peek.
+
+Below is the original Udacity README content:
+```
+---
+
 # Activity Lifecycle - DessertPusher 
 
 This is the toy app for lesson 4 of the [Android App Development in Kotlin course on Udacity](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).
