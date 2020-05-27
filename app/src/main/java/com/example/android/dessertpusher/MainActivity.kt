@@ -163,27 +163,27 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onResume() {
         super.onResume()
-        Timber.i("onResume Called")
+        Timber.i("onResume Called -- activity is running & has focus")
     }
 
     override fun onPause() {
         super.onPause()
-        Timber.i("onPause Called")
+        Timber.i("onPause Called -- activity is visible but doesn't have focus")
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.i("onStop Called")
+        Timber.i("onStop Called -- activity is off screen")
         dessertTimer.stopTimer()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Timber.i("onDestroy Called")
+        Timber.i("onDestroy Called -- activity is about to be destroyed")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Timber.i("onRestart Called")
+        Timber.i("onRestart Called -- activity has been revived from stopped state")
     }
 }
